@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container" style="padding-top:45px; padding-bottom:45px">
+<div class="card" style="width: 50rem;">
+  <img src="{{ post.image.url }}" class="rounded mx-auto d-block">
+  <div class="card-body">
+    <h4 class="card-title">{{ post.title }}</h4>
+      <small>{{ post.date }}</small>
+    <p class="card-text"> {{ post.content }} </p>
+    <a href="{% url 'index' %}" class="btn btn-primary">Main Page</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'update' post.id %}" class="btn btn-success">Update</a>
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

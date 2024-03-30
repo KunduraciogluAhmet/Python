@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class = "container" style = "margin-top:50px">
+  <h3> Login Form</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value = "Login">
+  </form>
+
+
+</div>
+
+{% endblock %}
